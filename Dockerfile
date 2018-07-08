@@ -4,8 +4,8 @@ MAINTAINER info@incendonet.com
 
 # Env setup
 ENV HOME /root
-ENV MONO_MAJOR 5.10
-ENV MONO_MINOR 0.140-0.xamarin.2.epel7
+ENV MONO_MAJOR 5.12
+ENV MONO_MINOR 0.233-0.xamarin.3.epel7
 WORKDIR ~/
 
 # Get updates and build deps
