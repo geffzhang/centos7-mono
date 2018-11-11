@@ -1,12 +1,13 @@
 # Base OS
 FROM centos:7
-MAINTAINER info@incendonet.com
+
+ARG VERSION
 
 # Env setup
 ENV HOME /root
-ENV MONO_MAJOR 5.14
-ENV MONO_MINOR 0.177-0.xamarin.1.epel7
-WORKDIR ~/
+ENV VERSION_FULL ${VERSION}-0.xamarin.3.epel7
+#WORKDIR /tmp
+
 
 # Get updates and build deps
 RUN \
@@ -24,10 +25,10 @@ RUN \
 	yum -y install \
 		postgresql \
 		libgdiplus0-4.2-0.xamarin.2.epel7 \
-		mono-core-$MONO_MAJOR.$MONO_MINOR \
-		mono-data-$MONO_MAJOR.$MONO_MINOR \
-		mono-data-sqlite-$MONO_MAJOR.$MONO_MINOR \
-		mono-nunit-$MONO_MAJOR.$MONO_MINOR \
-		mono-web-$MONO_MAJOR.$MONO_MINOR && \
+		mono-core-${VERSION_FULL} \
+		mono-data-${VERSION_FULL} \
+		mono-data-sqlite-${VERSION_FULL} \
+		mono-nunit-${VERSION_FULL} \
+		mono-web-${VERSION_FULL} && \
 		yum clean all && \
 		rm -rf /var/cache/yum
